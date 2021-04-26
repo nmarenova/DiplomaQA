@@ -28,15 +28,14 @@ repositories {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.6.1'
-    testImplementation 'com.codeborne:selenide:5.6.0'
+    testImplementation 'com.codeborne:selenide:5.20.3'
 
     testImplementation 'mysql:mysql-connector-java:8.0.18'
     testImplementation 'postgresql:postgresql:9.0-801.jdbc4'
 
     testImplementation 'org.slf4j:slf4j-nop:1.7.25'
     testImplementation 'commons-dbutils:commons-dbutils:1.7'
-    testImplementation 'io.qameta.allure:allure-selenide:2.13.1'
-    testImplementation 'io.rest-assured:rest-assured:4.1.2'
+    testImplementation 'io.qameta.allure:allure-selenide:2.13.9'
     testImplementation 'com.github.javafaker:javafaker:1.0.1'
 }
 
