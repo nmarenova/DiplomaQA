@@ -8,14 +8,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import ru.netology.Data.DBUtils;
 import ru.netology.Page.FormPage;
+import ru.netology.Page.PaymentMethodPage;
 
 import java.sql.SQLException;
 
 public class BaseTest {
     protected FormPage formPage;
+    protected PaymentMethodPage paymentMethodPage;
 
     @BeforeEach
     protected void setUpPage() {
+        paymentMethodPage = new PaymentMethodPage();
         formPage = new FormPage();
     }
 

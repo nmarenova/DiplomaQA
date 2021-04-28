@@ -19,28 +19,11 @@ public class FormPage {
     SelenideElement cardOwner = $(byText("Владелец")).parent().$(".input__control");
     SelenideElement cvcOrCvvNumber = $(byText("CVC/CVV")).parent().$(".input__control");
     SelenideElement continueButton = $$(".button__content").find(exactText("Продолжить"));
-    SelenideElement buyButton = $$(".button__content").find(exactText("Купить"));
-    SelenideElement buyCreditButton = $$(".button__content").find(exactText("Купить в кредит"));
-    SelenideElement cardPayment = $$(".heading_theme_alfa-on-white").find(exactText("Оплата по карте"));
-    SelenideElement creditAccordingToTheCard = $$(".heading_theme_alfa-on-white").find(exactText("Кредит " +
-            "по данным карты"));
     SelenideElement success = $(withText("Успешно"));
     SelenideElement error = $(withText("Ошибка"));
     SelenideElement successSearch = $$(".notification__title").find(exactText("Успешно"));
     SelenideElement errorSearch = $$(".notification__title").find(exactText("Ошибка"));
     SelenideElement inputSub = $(".input__sub");
-
-    public void buyByDebit() {
-        open(host);
-        buyButton.click();
-        cardPayment.shouldBe(visible);
-    }
-
-    public void buyInCredit() {
-        open(host);
-        buyCreditButton.click();
-        creditAccordingToTheCard.shouldBe(visible);
-    }
 
     public void checkMessageSuccess() {
         successSearch.waitUntil(visible, 15000);

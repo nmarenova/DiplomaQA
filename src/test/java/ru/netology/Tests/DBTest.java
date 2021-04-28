@@ -16,7 +16,7 @@ public class DBTest extends BaseTest {
     @DisplayName("Тест дебетовой карты с проверкой в БД")
     void debitValidCardTest() throws SQLException {
         validCard = CardModel.generatedApprovedCard("ru");
-        formPage.buyByDebit();
+        paymentMethodPage.buyByDebit();
         formPage.fillCardData(validCard);
         formPage.pushContinueButton();
         formPage.checkMessageSuccess();
@@ -30,7 +30,7 @@ public class DBTest extends BaseTest {
     @DisplayName("Тест невалидной дебетовой карты с проверкой в БД")
     void debitNotValidCardTest() throws SQLException {
         invalidCard = CardModel.generatedDeclinedCard("ru");
-        formPage.buyByDebit();
+        paymentMethodPage.buyByDebit();
         formPage.fillCardData(invalidCard);
         formPage.pushContinueButton();
         formPage.checkMessageSuccess();
@@ -44,7 +44,7 @@ public class DBTest extends BaseTest {
     @DisplayName("Тест валидной кредитной карты с проверкой в БД")
     void creditValidCardTest() throws SQLException {
         validCard = CardModel.generatedApprovedCard("ru");
-        formPage.buyInCredit();
+        paymentMethodPage.buyInCredit();
         formPage.fillCardData(validCard);
         formPage.pushContinueButton();
         formPage.checkMessageSuccess();
@@ -57,7 +57,7 @@ public class DBTest extends BaseTest {
     @DisplayName("Тест не валидной кредитной карты с проверкой в БД")
     void creditNotValidCardTest() throws SQLException {
         invalidCard = CardModel.generatedDeclinedCard("ru");
-        formPage.buyInCredit();
+        paymentMethodPage.buyInCredit();
         formPage.fillCardData(invalidCard);
         formPage.pushContinueButton();
         formPage.checkMessageSuccess();

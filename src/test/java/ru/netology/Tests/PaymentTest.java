@@ -14,7 +14,7 @@ public class PaymentTest extends BaseTest {
     @DisplayName("Валидная карта, на которой достаточное количество денежных средств")
     void payWithApprovedCard() {
         validCard = CardModel.generatedApprovedCard("ru");
-        formPage.buyByDebit();
+        paymentMethodPage.buyByDebit();
         formPage.fillCardData(validCard);
         formPage.pushContinueButton();
         formPage.checkMessageSuccess();
@@ -24,7 +24,7 @@ public class PaymentTest extends BaseTest {
     @DisplayName("Валидная карта, на которой достаточное количество денежных средств")
     void payCreditWithApprovedCard() {
         validCard = CardModel.generatedApprovedCard("ru");
-        formPage.buyInCredit();
+        paymentMethodPage.buyInCredit();
         formPage.fillCardData(validCard);
         formPage.pushContinueButton();
         formPage.checkMessageSuccess();
@@ -34,7 +34,7 @@ public class PaymentTest extends BaseTest {
     @DisplayName("Оплата валидной картой, на которой недостаточное количество денежных средств")
     void payWithDeclinedCard() {
         invalidCard = CardModel.generatedDeclinedCard("ru");
-        formPage.buyInCredit();
+        paymentMethodPage.buyInCredit();
         formPage.fillCardData(invalidCard);
         formPage.pushContinueButton();
         formPage.checkMessageError();
@@ -44,7 +44,7 @@ public class PaymentTest extends BaseTest {
     @DisplayName("Оплата валидной картой, на которой недостаточное количество денежных средств")
     void payCreditWithDeclinedCard() {
         invalidCard = CardModel.generatedDeclinedCard("ru");
-        formPage.buyInCredit();
+        paymentMethodPage.buyInCredit();
         formPage.fillCardData(invalidCard);
         formPage.pushContinueButton();
         formPage.checkMessageError();
@@ -54,7 +54,7 @@ public class PaymentTest extends BaseTest {
     @CsvFileSource(resources = "/Field.csv", numLinesToSkip = 1)
     void verifyPayField(String numberCard, String month, String year, String name, String cvv,
                         String expected, String message) {
-        formPage.buyByDebit();
+        paymentMethodPage.buyByDebit();
         formPage.setCardNumber(numberCard);
         formPage.setCardMonth(month);
         formPage.setCardYear(year);
@@ -68,7 +68,7 @@ public class PaymentTest extends BaseTest {
     @CsvFileSource(resources = "/Field.csv", numLinesToSkip = 1)
     void verifyCreditField(String numberCard, String month, String year, String name, String cvv,
                            String expected, String message) {
-        formPage.buyInCredit();
+        paymentMethodPage.buyInCredit();
         formPage.setCardNumber(numberCard);
         formPage.setCardMonth(month);
         formPage.setCardYear(year);
