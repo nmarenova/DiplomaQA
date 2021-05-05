@@ -2,7 +2,7 @@
 
 ##### Дипломный проект по автоматизации тестирования комплексного сервиса, взаимодействующего с СУБД и API Банка.
 ## Документация
-* ### [План автоматизации тестирования](https://https://github.com/nmarenova/DiplomaQA/blob/master/documentation/Plan.md)
+* ### [План автоматизации тестирования](https://github.com/nmarenova/DiplomaQA/blob/master/documentation/Plan.md)
 
 * ### [Отчёт по итогам тестирования](https://github.com/nmarenova/DiplomaQA/blob/master/documentation/Report.md)
 
