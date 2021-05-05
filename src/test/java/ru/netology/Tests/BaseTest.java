@@ -10,8 +10,6 @@ import ru.netology.Data.DBUtils;
 import ru.netology.Page.FormPage;
 import ru.netology.Page.PaymentMethodPage;
 
-import java.sql.SQLException;
-
 public class BaseTest {
     protected FormPage formPage;
     protected PaymentMethodPage paymentMethodPage;
@@ -28,7 +26,7 @@ public class BaseTest {
     }
 
     @AfterEach
-    protected void clearAll() throws SQLException {
+    protected void clearAll() {
         DBUtils.clearAllData();
     }
 

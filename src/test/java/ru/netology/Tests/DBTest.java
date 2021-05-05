@@ -1,12 +1,11 @@
 package ru.netology.Tests;
 
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.netology.Data.DBUtils;
+import ru.netology.Data.DataHelper;
 import ru.netology.Models.CardModel;
-
-import java.sql.SQLException;
-
 
 public class DBTest extends BaseTest {
     private CardModel validCard;
@@ -14,8 +13,8 @@ public class DBTest extends BaseTest {
 
     @Test
     @DisplayName("Тест дебетовой карты с проверкой в БД")
-    void debitValidCardTest() throws SQLException {
-        validCard = CardModel.generatedApprovedCard("ru");
+    void debitValidCardTest() {
+        validCard = DataHelper.generatedApprovedCard("ru");
         paymentMethodPage.buyByDebit();
         formPage.fillCardData(validCard);
         formPage.pushContinueButton();
@@ -28,8 +27,8 @@ public class DBTest extends BaseTest {
 
     @Test
     @DisplayName("Тест невалидной дебетовой карты с проверкой в БД")
-    void debitNotValidCardTest() throws SQLException {
-        invalidCard = CardModel.generatedDeclinedCard("ru");
+    void debitNotValidCardTest() {
+        invalidCard = DataHelper.generatedDeclinedCard("ru");
         paymentMethodPage.buyByDebit();
         formPage.fillCardData(invalidCard);
         formPage.pushContinueButton();
@@ -42,8 +41,8 @@ public class DBTest extends BaseTest {
 
     @Test
     @DisplayName("Тест валидной кредитной карты с проверкой в БД")
-    void creditValidCardTest() throws SQLException {
-        validCard = CardModel.generatedApprovedCard("ru");
+    void creditValidCardTest() {
+        validCard = DataHelper.generatedApprovedCard("ru");
         paymentMethodPage.buyInCredit();
         formPage.fillCardData(validCard);
         formPage.pushContinueButton();
@@ -55,8 +54,8 @@ public class DBTest extends BaseTest {
 
     @Test
     @DisplayName("Тест не валидной кредитной карты с проверкой в БД")
-    void creditNotValidCardTest() throws SQLException {
-        invalidCard = CardModel.generatedDeclinedCard("ru");
+    void creditNotValidCardTest() {
+        invalidCard = DataHelper.generatedDeclinedCard("ru");
         paymentMethodPage.buyInCredit();
         formPage.fillCardData(invalidCard);
         formPage.pushContinueButton();

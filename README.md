@@ -1,6 +1,12 @@
 # Дипломный проект по профессии «Тестировщик»
 
 ##### Дипломный проект по автоматизации тестирования комплексного сервиса, взаимодействующего с СУБД и API Банка.
+## Документация
+* ### [План автоматизации тестирования](https://https://github.com/nmarenova/DiplomaQA/blob/master/documentation/Plan.md)
+
+* ### [Отчёт по итогам тестирования](https://github.com/nmarenova/DiplomaQA/blob/master/documentation/Report.md)
+
+* ### [Отчёт по итогам автоматизации](https://github.com/nmarenova/DiplomaQA/blob/master/documentation/Summary.md)
 
 ## Запуск программы и тестов
 

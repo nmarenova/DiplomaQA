@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import ru.netology.Data.DataHelper;
 import ru.netology.Models.CardModel;
 
 public class PaymentTest extends BaseTest {
@@ -13,7 +14,7 @@ public class PaymentTest extends BaseTest {
     @Test
     @DisplayName("Валидная карта, на которой достаточное количество денежных средств")
     void payWithApprovedCard() {
-        validCard = CardModel.generatedApprovedCard("ru");
+        validCard = DataHelper.generatedApprovedCard("ru");
         paymentMethodPage.buyByDebit();
         formPage.fillCardData(validCard);
         formPage.pushContinueButton();
@@ -23,7 +24,7 @@ public class PaymentTest extends BaseTest {
     @Test
     @DisplayName("Валидная карта, на которой достаточное количество денежных средств")
     void payCreditWithApprovedCard() {
-        validCard = CardModel.generatedApprovedCard("ru");
+        validCard = DataHelper.generatedApprovedCard("ru");
         paymentMethodPage.buyInCredit();
         formPage.fillCardData(validCard);
         formPage.pushContinueButton();
@@ -33,7 +34,7 @@ public class PaymentTest extends BaseTest {
     @Test
     @DisplayName("Оплата валидной картой, на которой недостаточное количество денежных средств")
     void payWithDeclinedCard() {
-        invalidCard = CardModel.generatedDeclinedCard("ru");
+        invalidCard = DataHelper.generatedDeclinedCard("ru");
         paymentMethodPage.buyInCredit();
         formPage.fillCardData(invalidCard);
         formPage.pushContinueButton();
@@ -43,7 +44,7 @@ public class PaymentTest extends BaseTest {
     @Test
     @DisplayName("Оплата валидной картой, на которой недостаточное количество денежных средств")
     void payCreditWithDeclinedCard() {
-        invalidCard = CardModel.generatedDeclinedCard("ru");
+        invalidCard = DataHelper.generatedDeclinedCard("ru");
         paymentMethodPage.buyInCredit();
         formPage.fillCardData(invalidCard);
         formPage.pushContinueButton();
