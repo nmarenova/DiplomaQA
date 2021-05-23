@@ -4,6 +4,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.Models.CardModel;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
@@ -26,12 +28,12 @@ public class FormPage {
     SelenideElement inputSub = $(".input__sub");
 
     public void checkMessageSuccess() {
-        successSearch.waitUntil(visible, 15000);
+        successSearch.shouldBe(Condition.visible, Duration.ofSeconds(15));
         success.shouldBe(Condition.appear);
     }
 
     public void checkMessageError() {
-        errorSearch.waitUntil(visible, 15000);
+        errorSearch.shouldBe(Condition.visible, Duration.ofSeconds(15));
         error.shouldBe(Condition.appear);
     }
 
